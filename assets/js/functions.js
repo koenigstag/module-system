@@ -1,5 +1,5 @@
 // module(imports[], function(importedValues[]) { return 'export'; });
-module(null, function () {
+window.module(null, function () {
   // export
   return {
     myMath: {

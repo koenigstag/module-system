@@ -1,9 +1,16 @@
 function module(depsArray, moduleFunc) {
-  System.register(depsArray ?? [], (_export, _context) => {
+  const deps = depsArray ? depsArray : [];
+  System.register(deps, function (_export, _context) {
     const importsArray = [];
     return {
-      setters: depsArray?.map((dep, idx) => (v) => (importsArray[idx] = v)),
-      execute: async () => {
+      setters: depsArray
+        ? depsArray.map(function (dep, idx) {
+            return function (v) {
+              importsArray[idx] = v;
+            };
+          })
+        : undefined,
+      execute: async function () {
         const exportValue = await moduleFunc(importsArray, _context);
         _export(exportValue);
       },
@@ -11,4 +18,4 @@ function module(depsArray, moduleFunc) {
   });
 }
 
-
+window.module = module;
