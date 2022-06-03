@@ -1,5 +1,5 @@
-// creteModule(fileName, imports[], function(importedValues[]) { return 'export'; });
-defineModule('functions', null, function () {
+// module(imports[], function(importedValues[]) { return 'export'; });
+module(null, function () {
   // export
   return {
     myMath: {

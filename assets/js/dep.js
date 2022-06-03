@@ -1,12 +1,8 @@
-System.register([], function (_export, _context) {
-  return {
-    setters: [],
-    execute: function () {
-      console.log('execute2');
+module(['./functions.js'], async ([funcs]) => {
+  console.log('execute 2');
 
-      _export({
-        value: 'value',
-      });
-    }
+  const exports = {
+    value: funcs.myMath.sum(1, 2),
   };
+  return exports;
 });

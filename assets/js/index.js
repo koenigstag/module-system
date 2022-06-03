@@ -1,5 +1,11 @@
-defineModule("index", ["/assets/js/functions.js"], function (imports) {
-  console.log(imports);
-});
+// import foo from './deps.js';
 
-initModule('index', '/assets/js');
+module(['./dep.js'], function (imports) {
+  const [foo] = imports;
+  console.log('execute 1');
+  console.log(foo);
+
+  return {
+    test: 'test',
+  };
+});
