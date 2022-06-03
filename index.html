@@ -6,6 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 
+  <script>
+    if (typeof Promise === 'undefined')
+      document.write('<script src="https://unpkg.com/bluebird@3.7.2/js/browser/bluebird.core.min.js"><\/script>');
+    if (typeof fetch === 'undefined')
+      document.write('<script src="https://unpkg.com/whatwg-fetch@3.4.1/dist/fetch.umd.js"><\/script>');
+  </script>
+
   <script defer src="./assets/js/s.min.js"></script>
   <script defer src="./assets/js/module.js"></script>
   <!-- required type="systemjs-module" -->
