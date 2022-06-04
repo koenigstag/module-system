@@ -10,9 +10,14 @@ function module(depsArray, moduleFunc) {
             };
           })
         : undefined,
-      execute: async function () {
-        const exportValue = await moduleFunc(importsArray, _context);
-        _export(exportValue);
+      execute: function () {
+        return Promise.resolve()
+          .then(function () {
+            return moduleFunc(importsArray, _context);
+          })
+          .then(function (v) {
+            _export(v);
+          });
       },
     };
   });

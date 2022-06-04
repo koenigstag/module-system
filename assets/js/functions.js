@@ -3,7 +3,7 @@ window.module(null, function () {
   // export
   return {
     myMath: {
-      sum(a, b) {
+      sum: function(a, b) {
         return a + b;
       },
     }

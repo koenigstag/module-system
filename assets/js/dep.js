@@ -1,4 +1,4 @@
-window.module(['./functions.js'], async function (imports) {
+window.module(['./functions.js'], function (imports) {
   const funcs = imports[0];
   console.log('execute 2');
 
